@@ -1,0 +1,15 @@
+- hosts: localhost
+  vars:
+    favourite_color: blue
+    age: 21
+    voting_center: Jayanagar
+    fruits:
+      - banana
+      - apple
+      - mango
+      - pear
+  tasks:
+  - name: Jinja2 template - Example2
+    template:
+      src: temp-test.j2
+      dest: temp-test.txt

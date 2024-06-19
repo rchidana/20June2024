@@ -1,0 +1,6 @@
+---
+- name: Ansible | Print a variable
+  hosts: ubuntu1
+  tasks:
+   - debug:
+       msg: "The operating system is {{ ansible_distribution }}"

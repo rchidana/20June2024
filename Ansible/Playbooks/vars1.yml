@@ -1,0 +1,7 @@
+- hosts: localhost
+  vars:
+    hello: world
+  tasks:
+  - name: Ansible Basic Variable Example
+    debug:
+      msg: "{{ hello }}"

@@ -1,0 +1,20 @@
+---
+- hosts: localhost
+  vars_prompt:
+
+    - name: username
+      prompt: "What is your username?"
+      private: no
+
+    - name: password
+      prompt: "What is your password?"
+
+    - name: version
+      prompt: "Which version of software do you want to Install?"
+      default: 1.0
+      private: no
+
+  tasks:
+
+    - debug:
+        msg: 'Logging in as {{ username }} and asking to install version : {{ version }}'

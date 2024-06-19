@@ -1,0 +1,19 @@
+- hosts: localhost
+  
+  tasks:
+  - name: Ansible Demo to check order of execution of Handlers
+    file:
+      path: "/home/vagrant/handler.txt"
+      state: present
+    notify:
+      - First Handler
+      - Second Handler
+
+  handlers:
+  - name: Second Handler
+    debug:
+      msg: "Second Handler got invoked!!"
+
+  - name: First Handler
+    debug:
+      msg: "First Handler got invoked!!"

@@ -1,0 +1,11 @@
+- hosts: localhost
+  vars:
+    Fruits:
+      Apple: 'Red'
+      Orange: 'Orange'
+      Grapes: 'Greem'
+  tasks:
+  - name: Ansible dictionary loop Example
+    debug:
+      msg: "Key is {{ item.key}} and color is {{item.value}}"
+    with_dict: "{{ Fruits }}"

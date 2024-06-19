@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Insert Line at the end of the file
+      lineinfile:
+        path: /home/vagrant/Hello.txt
+        line: 'The conclusion - by Ansible'

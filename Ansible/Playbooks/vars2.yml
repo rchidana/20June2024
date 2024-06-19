@@ -1,0 +1,16 @@
+- hosts: localhost
+  vars:
+    hello:
+      - World
+      - Asia
+      - South America
+      - North America
+      - Artic
+      - Antartic
+      - Oceania
+      - Europe
+      - Africa
+  tasks:
+  - name: Ansible List variable Example
+    debug:
+      msg: "{{ hello[2] }}"

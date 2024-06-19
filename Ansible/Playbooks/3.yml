@@ -1,0 +1,7 @@
+---
+- name: Ansible | Print a variable
+  hosts: ubuntu1
+  gather_facts: true
+  tasks:
+   - debug:
+       msg: "{{ lookup ('env','USER','HOME','PATH') }}"

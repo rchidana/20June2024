@@ -1,0 +1,19 @@
+- hosts: localhost
+  vars:
+    include_newline: |
+            The new line charaters
+            will appear
+
+    ignore_newline: >
+            The new line character will
+            be removed. Useful when editing
+            lines
+  tasks:
+   - name: Ansible create new file with new line content
+     copy:
+       dest: /home/vagrant/file_with_LF.txt
+       content: "{{ include_newline }}"
+   - name: Ansible create new file without new line content
+     copy:
+       dest: /home/vagrant/file_with_out_LF.txt
+       content: "{{ ignore_newline }}"

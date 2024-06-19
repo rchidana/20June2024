@@ -1,0 +1,12 @@
+- hosts: localhost
+  tasks:
+  - name: Ansible create multiple files example
+    file: 
+      path: "{{ item }}"
+      state: touch
+      mode: 0775
+    with_items:
+    - /home/vagrant/file1.txt
+    - /home/vagrant/file2.txt
+    - /home/vagrant/file3.txt
+    - /home/vagrant/file4.txt

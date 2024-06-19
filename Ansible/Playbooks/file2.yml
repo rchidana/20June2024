@@ -1,0 +1,9 @@
+- hosts: localhost
+  tasks:
+  - name: Ansible create file with content example
+    copy:
+      dest: "/home/vagrant/animals.txt"
+      content: |
+        dog
+        tiger
+        cat

@@ -1,0 +1,8 @@
+- hosts: localhost
+  tasks:
+  - name: Ansible create new file with permissions example.
+    file:
+      path: "/home/vagrant/devops.txt"
+      state: touch
+      mode: 0666
+      owner: vagrant

@@ -1,0 +1,19 @@
+---
+- name: Demo to set up Environment Variables
+  hosts: ubuntu1
+  gather_facts: false
+  become: true
+  vars:
+    demo_environment:
+    - key: EDITOR
+      value: vi
+    - key: MY_ENV_VARIABLE
+      value: "Demo Tutorial"
+  tasks:
+    - name: Append into /etc/environment
+      ansible.builtin.lineinfile:
+        dest: "/etc/environment"
+        state: present
+        regex: "^{{ item.key }}="
+        line: "{{ item.key }}={{ item.value }}"
+      with_items: "{{ demo_environment }}"

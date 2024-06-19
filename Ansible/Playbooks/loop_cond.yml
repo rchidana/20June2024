@@ -1,0 +1,12 @@
+- hosts: localhost
+  vars:
+    loop_1: "hello1"
+  tasks:
+  - name: Ansible loop with conditional example
+    debug:
+      msg: "{{ item }}"
+    with_items:
+      - "hello1"
+      - "hello2"
+      - "hello3"
+    when: item == "{{ loop_1 }}"

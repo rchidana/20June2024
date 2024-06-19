@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Insert the alias after all alias definitions
+      lineinfile:
+        path: ~/.bashrc
+        line: alias ll='ls -lhA'
+        insertafter: alias.* 

@@ -1,0 +1,6 @@
+---
+- name: Ansible | Print all facts gathered from ubuntu1 host
+  hosts: ubuntu1
+  tasks:
+    - debug:
+        var: ansible_facts

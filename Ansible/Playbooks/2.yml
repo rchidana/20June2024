@@ -1,0 +1,7 @@
+---
+- name: Ansible | Print all ENV variables
+  hosts: ubuntu1
+  gather_facts: true
+  tasks:
+   - debug:
+       msg: "{{ ansible_env }}"

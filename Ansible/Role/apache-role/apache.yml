@@ -1,0 +1,24 @@
+- hosts: ubuntu1
+  become: true
+  vars:
+    doc_root: "/home/vagrant/www-home"
+  vars_files:
+    - vars/main.yml
+  tasks:
+  - name: Create Document Root
+    ansible.builtin.file:
+      path: "{{ doc_root }}"
+      state: directory
+      mode: '0755'
+
+  - name: Create a sample index.html
+    ansible.builtin.copy:
+      dest: "{{ doc_root }}/index.html"
+      content: |
+        <html> <head> Installed by Ansible Role </head>
+        <body>This Apache Server has been installed by Geerlingguy Apache Role </body>
+        </html>
+
+  - name: Use Geerlingguy Apache Role
+    include_role:
+      name: geerlingguy.apache

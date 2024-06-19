@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  become: yes
+  tasks:
+    - name: Insert before any .domain definitions
+      lineinfile:
+        path: /etc/hosts
+        line: '0.0.0.0 facebook.com'
+        insertbefore: .*domain.com 

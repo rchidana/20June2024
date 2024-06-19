@@ -1,0 +1,12 @@
+---
+- name: UPDATE THE SNMP RO/RW STRINGS
+  hosts: routers
+  connection: network_cli
+  gather_facts: no
+
+  tasks:
+    - name: ENSURE THAT THE DESIRED SNMP STRINGS ARE PRESENT
+      ios_config:
+        commands:
+          - snmp-server community ansible-public RO
+          - snmp-server community ansible-private RW

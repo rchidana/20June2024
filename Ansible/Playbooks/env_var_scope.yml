@@ -1,0 +1,22 @@
+---
+- name: Example to demonstrate scope of variables
+  hosts: localhost
+  
+  environment:
+    TRAINING: "Ansible Session"
+    MY_VAR1: "Playbook Variable"
+
+  tasks:
+    # Task Level Environment Variable
+    - name: Environment var for only task Level
+      environment:
+        MY_TASK_LEVEL_VARIABLE: "Hello World!"
+      ansible.builtin.command: "echo $MY_TASK_LEVEL_VARIABLE : $TRAINING : $MY_VAR1"
+
+    # Can we access variables defined in last Task??
+    - name: Testing both playbook level as well as environment level vars.
+      ansible.builtin.command: "echo $MY_TASK_LEVEL_VARIABLE : $TRAINING : $MY_VAR1"
+    - name: Override Playbook variable
+      environment:
+        TRAINING: "Chef & Puppet Session"
+      ansible.builtin.command: "echo $TRAINING : $MY_VAR1"

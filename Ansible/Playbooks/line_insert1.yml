@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Insert Line at the beginning of the file
+      lineinfile:
+        path: /home/vagrant/Hello.txt
+        line: 'Added Line 1 through Ansible'
+        insertbefore: BOF
