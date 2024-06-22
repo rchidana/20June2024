@@ -80,6 +80,7 @@ ansible-config init --disabled > ansible.cfg
 # In order to disable strict key checking, modify the following flag in ansible.cfg
 vi ansible.cfg
 # Search for the following line and edit it as follows
+[defaults]
 host_key_checking=False
 
 ```
